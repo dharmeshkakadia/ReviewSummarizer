@@ -14,7 +14,8 @@ public class DBController {
 	
 	private DBController() {
 		try {
-			mongoDb = new Mongo();
+			mongoDb = new Mongo("10.3.4.118");
+			//mongoDb = new Mongo();
 			db = mongoDb.getDB("ProductReview");
 		} catch (UnknownHostException e) {
 			e.printStackTrace();

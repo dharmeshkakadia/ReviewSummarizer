@@ -19,6 +19,12 @@ public class ReviewSummary {
 		this.totalReviews =totalReviews;
 		this.avgRating = avgRating;
 	}
+	public ReviewSummary(String product, String feature, Number totalReviews, Number avgRating) {
+		this.product = product;
+		this.feature = feature;
+		this.totalReviews =totalReviews.intValue();
+		this.avgRating = avgRating.doubleValue();
+	}
 	
 	public int getTotalReviews() {
 		return totalReviews;

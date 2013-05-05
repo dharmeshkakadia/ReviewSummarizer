@@ -1,8 +1,13 @@
 package scema;
 
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
 import java.io.Serializable;
 
-public class Feature implements Serializable{
+import org.apache.hadoop.io.Writable;
+
+public class Feature implements Writable{
 	String name;
 	double rating;
 	
@@ -31,5 +36,18 @@ public class Feature implements Serializable{
 	
 	public String toString() {
 		return "feature name : " + name + " rating : " + rating;
+	}
+
+	@Override
+	public void readFields(DataInput in) throws IOException {
+		rating=in.readDouble();
+		name=in.readUTF();
+	}
+
+	@Override
+	public void write(DataOutput out) throws IOException {
+		out.writeDouble(rating);
+		out.writeUTF(name);
+		
 	}
 }
